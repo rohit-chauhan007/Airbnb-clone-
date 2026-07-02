@@ -1,0 +1,25 @@
+   
+   <div id="navbar">
+        <div class="logo">
+            <i class="fa-regular fa-compass"></i>
+            <h1> <a href="/listing">BookMyStay</a></h1>
+        </div>
+        <div class="search">
+            <div class="input">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search"  placeholder="search hotels.....">
+            </div>
+        </div>
+    <div class="navigation">
+        <a href="/listing">Home</a>
+        <a href="/listing/new">Add listing</a>
+       <% if (!currUser) { %>
+         <a style="font-size: 0.8rem;" class="btn btn-outline-primary" href="/signup">Signup</a>
+         <a style="font-size: 0.8rem;" class="btn btn-outline-primary" href="/login">Login</a>
+       <% } %>
+       <% if (currUser) { %>
+            <a style="font-size: 0.8rem;" class="btn btn-outline-primary" href="/logout">Logout</a>
+       <% } %>
+    </div>
+    <div class="menu" id="menu"><i class="fa-solid fa-bars"></i></div>
+    </div>

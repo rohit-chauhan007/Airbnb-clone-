@@ -1,0 +1,53 @@
+<% layout('/layouts/boilerplate.ejs') %>
+<body>
+         
+<form method="POST" action="/listing" novalidate class="needs-validation" enctype="multipart/form-data" > 
+    <div id="card" style="height:78vh">
+          <h3 style="text-align: center;font-size:4vw;">Add new listing</h3>
+       <div class="row">
+         <div class="col-8 offset-2">
+           <div class="mb-3">
+                <label for="title" clsss="form-label">Title</label>
+                <input name="listing[title]" class="form-control"  placeholder="Enter title" required>
+              <div class="invalid-feedback">
+                 Title should be valid
+              </div>
+           </div>
+           <div class="mb-3">
+                <label for="description" clsss="form-label">Description</label>
+                <textarea name="listing[description]" type="text" class="form-control" placeholder="Enter description" required></textarea>
+              <div class="invalid-feedback">
+                   Description  should be valid
+              </div>
+           </div>
+           <div class="mb-3">
+                <label for="Image" class="form-label">Upload Image</label>
+                <input name="listing[image][url]" type="file" class="form-control" placeholder="Enter price">
+            </div>
+         <div class="row">
+            <div class="mb-3 col-md-4">
+                  <label for="price" class="form-label">Price</label>
+                  <input name="listing[price]"  class="form-control" placeholder="Enter price" required>
+            </div>
+            <div class="mb-3 col-md-8">
+                  <label for="country" class="form-label">country</label>
+                  <input name="listing[country]" type="text" class="form-control" placeholder="Enter country" required>
+            </div>
+          </div>
+            <div class="mb-3">
+                  <label for="location" class="form-label">Location</label>
+                  <input  name="listing[location]" type="text" class="form-control" placeholder="patna,India" required>
+            </div>
+            <div id="btn">
+                 <button class="btn bg-success m-1">Add</button>
+                 <a href="/listing" class="btn bg-primary">Back</a>
+            </div>
+        </div>
+      </div> 
+    </div>
+  </form>
+</body>
+
+
+    
+

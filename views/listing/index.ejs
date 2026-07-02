@@ -1,0 +1,188 @@
+<% layout('/layouts/boilerplate.ejs') %>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<body>
+
+  <style>
+    .fillters-container{
+      display: flex;
+      justify-content: space-between;
+    }
+     .filters{
+      display: flex;
+      align-items: center;
+      gap:20px;
+      width: 60%;
+      /* margin-bottom: 1rem; */
+      /* background-color: red; */
+      overflow-x:auto;
+      
+     }
+     .filter{
+      text-align: center;
+      opacity: 0.7;
+      /* margin-top:1rem; */
+     }
+     
+     .filters::-webkit-scrollbar{
+      appearance: none;
+     }
+     .filter:hover{
+      opacity:1;
+      box-shadow: 1px 1px 5px white;
+     }
+     #switch-tax{
+      display: flex;
+      align-items: center;
+      border:1px solid rgb(174, 173, 173);
+      border-radius: 1rem;
+      height:2.4rem;
+      width:9rem;
+      text-align: center;
+      justify-content: center;
+      gap:5px;
+    
+        
+     
+     }
+     .gst{
+      display: none;
+     }
+  </style>
+    
+    <div id="card">
+      <div class="fillters-container">
+      <div class="filters">
+          <div class="arr">
+           <i class="fa-solid fa-angles-left"></i>
+          </div>
+        <div class="filter">
+          <i class="fa-solid fa-fire"></i>
+          <p>Trending</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-bed"></i>
+          <p>Rooms</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-mountain"></i>
+          <p>Mountain</p>
+        </div>
+        <div class="filter">
+          <i class="fa-brands fa-fort-awesome"></i>
+          <p>Castels</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-mountain-city"></i>
+          <p>Cities</p>
+        </div>
+        <div class="filter">
+         <i class="fa-solid fa-person-swimming"></i>
+          <p> Pools</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-tractor"></i>
+          <p>Farms</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-tent-arrow-down-to-line"></i>
+          <p>Camping</p>
+        </div>
+        <div class="filter">
+         <i class="fa-solid fa-snowflake"></i>
+          <p>Arctics</p>
+        </div>
+        <div class="filter">
+        <i class="fa-solid fa-building-columns"></i>
+          <p>Villa</p>
+        </div>
+        <div class="filter">
+         <i class="fa-solid fa-ship"></i>
+          <p>Boat</p>
+        </div>
+      <div class="filter">
+          <i class="fa-solid fa-fire"></i>
+          <p>Trending</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-fire"></i>
+          <p>Trending</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-fire"></i>
+          <p>Trending</p>
+        </div>
+        <div class="arr-right">
+        <i class="fa-solid fa-angles-right"></i>
+      </div>
+      </div>
+        <div id="switch-tax" class="form-check form-switch m-2 ">
+           <input 
+            class="form-check-input" 
+           type="checkbox" 
+           role="switch"
+           id="switchCheckChecked" >
+            <label
+             class="form-check-label"
+             for="switchCheckChecked">Add Tax</label>
+          </div>
+      </div>
+      
+       
+      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+              <% for (listing of listings) {%>
+            <a href="/listing/<%= listing.id %>" id="listing-link">
+             <div class="card cols listing-card">
+                     <img 
+                     src="<%= listing.image.url %>" class="card-img-top" alt="..." style="height: 20rem;">
+                 <div class="card-body">
+                     <p class="card-text"><b><%= listing.title %></b>
+                     <br>
+                      &#8377;<%= listing.price.toLocaleString("en-IN") %> /night &nbsp;<b class="gst">+18% GST</b> 
+                    </p>
+                 </div>
+
+
+             </div>
+            
+             </a>
+        
+        <% } %> 
+         </div>
+   </div>    
+</body>
+
+<script>
+  const taxToggle = document.getElementById("switchCheckChecked");
+  const tax = document.getElementsByClassName("gst");
+  
+taxToggle.addEventListener("click",()=>{
+  for(key of tax){
+    if(key.style.display !== "inline"){
+        key.style.display = "inline";
+      
+    }else{
+      key.style.display ="none";
+    }
+    
+  }
+})
+   
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    if (!localStorage.getItem("welcomePopup")) {
+
+        Swal.fire({
+            title: "👋 Welcome!",
+            text: "Welcome to BookMyStay! Find your perfect stay.",
+             background: "#FF0000",
+             color: "#fff",
+            icon: "success",
+
+            confirmButtonText: "Explore"
+        });
+
+        localStorage.setItem("welcomePopup", "true");
+    }
+});
+</script>

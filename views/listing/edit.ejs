@@ -1,0 +1,66 @@
+<% layout('/layouts/boilerplate.ejs') %>
+<body>
+    <div id="card">
+      <form method="POST" action="/listing/<%= listing.id %>?_method=PUT" enctype="multipart/form-data">
+      
+        <div class="row">
+             
+            <div class="md-3 lg-6" class=" d-flex flex-column justify-content-center .justify-content-lg-center">
+                 <h3>Edit listing</h3>
+                <div class="mb-3 ">
+                      <input name="listing[title]"
+                       type="text" class="form-control w-50 m-1" 
+                       value="<%= listing.title %>">
+                </div>
+                 <div class="mb-3">
+                      <input name="listing[description]"
+                       type="text" class="form-control w-50 m-1" 
+                       value="<%= listing.description %>">
+                </div>
+                  <p>Preview Image</p>
+                <div id="image-preview" class="mb-3">
+                   
+                     <img src="<%= listing.image.url %>">
+                </div>
+                 
+                 <div class="mb-3">
+                      <input name="listing[image][url]"
+                       type="file" class="form-control w-50 m-1" >
+                </div>
+                 <div class="mb-3">
+                      <input name="listing[price]"
+                       type="text" class="form-control w-50 m-1" 
+                       value="<%= listing.price %>">
+                </div>
+                 <div class="mb-3">
+                      <input name="listing[location]"
+                       type="text" class="form-control w-50 m-1" 
+                       value="<%= listing.location%>">
+                </div>
+                 <div class="mb-3">
+                      <input name="listing[country]"
+                       type="text" class="form-control w-50 m-1" 
+                       value="<%= listing.country %>">
+                </div>
+                 <button class="btn bg-primary m-1">Edit</button>
+            </div>
+            
+        </div>
+        <!-- <div class="container p-5">
+            <h3>Edit</h3>
+        <div class="preview-image">
+           
+        </div>
+       
+        <textarea name="listing[description]" type="text" class="form-control w-50 m-1"><%= listing.description %></textarea>
+        <input name="listing[image][url]" type="file" class="form-control w-50 m-1"  >
+        <input  name="[listing][price]"   type="number"  class="form-control w-50 m-1" value="<%= listing.price %>">
+        <input name="listing[location]"   type="text" class="form-control w-50 m-1"  value="<%= listing.location %>">
+        <input name="listing[country]"    type="text" class="form-control w-50 m-1"   value="<%= listing.country %>">
+         <button class="btn bg-primary m-1">Edit</button>
+     </div> -->
+    </form>
+
+    </div>
+</body>
+

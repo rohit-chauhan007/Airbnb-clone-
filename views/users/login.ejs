@@ -1,0 +1,15 @@
+<% layout('/layouts/boilerplate.ejs') %>
+<div id="card">
+<form method="POST" action="/login" novalidate class="needs-validation">
+  <div class="row">
+    <div class="col-6 offset-3 mb-3">
+      <label for="username" clsss="form-label">Username</label>
+      <input type="text" name="username" class="form-control"  placeholder="Enter username" required> 
+         <label for="password" clsss="form-label">Password</label>
+      <input type="password" name="password" class="form-control"  placeholder="Enter password" required>
+    
+      <button class="btn bg-success mt-2">Login</button>
+    </div>
+   </div>
+  </form>
+ </div>
