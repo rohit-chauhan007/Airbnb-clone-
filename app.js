@@ -158,10 +158,9 @@ app.use((req,res,next)=>{
 });
 app.use((err,req,res,next)=>{
   let {statusCode=500,message="Something went wrong"} = err;
-  res.render("./listing/error.ejs",{err})
-
+  res.render("./listing/error.ejs",{err});
 });
 
 app.listen(port,()=>{
     console.log("server is runninng");
-})
+});
