@@ -139,6 +139,9 @@ app.use((req,res,next)=>{
 //    console.log(registerUser);
 //    res.send(registerUser);
 // });
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
 //routers 
 app.use("/listing",listing);
 app.use("/listing/:id/review",reviews);
