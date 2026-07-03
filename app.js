@@ -140,7 +140,7 @@ app.use((req,res,next)=>{
 //    res.send(registerUser);
 // });
 app.get("/", (req, res) => {
-  res.redirect("/listings");
+  res.redirect("/listing");
 });
 //routers 
 app.use("/listing",listing);
