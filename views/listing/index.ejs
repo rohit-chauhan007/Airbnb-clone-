@@ -170,7 +170,7 @@ taxToggle.addEventListener("click",()=>{
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    if (!localStorage.getItem("welcomePopup")) {
+  
 
         Swal.fire({
             title: "👋 Welcome!",
@@ -182,7 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
             confirmButtonText: "Explore"
         });
 
-        localStorage.setItem("welcomePopup", "true");
-    }
+     
 });
 </script>
